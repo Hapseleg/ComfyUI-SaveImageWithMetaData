@@ -12,7 +12,12 @@ def stitch_together_positive_prompt(node_id, obj, prompt, extra_data, outputs, i
     if "prepend_positive_g" in input_data[0]:
         positive_prompt += input_data[0]["prepend_positive_g"][0]
         
-    positive_prompt += input_data[0]["positive"][0]
+        
+    if "positive" in input_data[0]:
+        positive_prompt += input_data[0]["positive"][0]
+    if "positive_g" in input_data[0]:
+        positive_prompt += input_data[0]["positive_g"][0]
+        
     
     return positive_prompt
 
@@ -23,7 +28,11 @@ def stitch_together_negative_prompt(node_id, obj, prompt, extra_data, outputs, i
     if "prepend_negative_g" in input_data[0]:
         negative_prompt += input_data[0]["prepend_negative_g"][0]
         
-    negative_prompt += input_data[0]["negative"][0]
+        
+    if "negative" in input_data[0]:
+        negative_prompt += input_data[0]["negative"][0]
+    if "negative_g" in input_data[0]:
+        negative_prompt += input_data[0]["negative_g"][0]
     
     return negative_prompt
 
